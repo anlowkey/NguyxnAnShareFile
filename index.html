@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>Deep Blue File Center — Kho File Tải Nhanh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Deep Blue / Moody Lighting -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand" onclick="switchTab('home')">
+        <div class="brand-badge">
+          <div class="brand-gem"></div>
+        </div>
+        <span class="brand-text" id="brandTitle">Nguyxn An 💸</span>
+        <span class="brand-tag">PREMIUM</span>
+      </div>
+
+      <!-- Navigation Tabs (Home, Files, Admin) -->
+      <nav class="nav-tabs" role="tablist">
+        <button class="nav-tab active" data-tab="home" onclick="switchTab('home')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Trang chủ</span>
+        </button>
+        <button class="nav-tab" data-tab="files" onclick="switchTab('files')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span>Kho file</span>
+          <span class="count-pill" id="tabFileCount">0</span>
+        </button>
+        <button class="nav-tab" data-tab="admin" onclick="switchTab('admin')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Admin</span>
+        </button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="switchTab('files')">
+          <span>LẤY FILE</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-shell">
+    
+    <!-- ===== TAB 1: TRANG CHỦ (HERO) ===== -->
+    <section class="tab-panel active" id="tab-home">
+      <div class="hero-container">
+        <!-- Hero Left / Content -->
+        <div class="hero-content">
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            <span>FILE CENTER</span>
+            <span class="sep">•</span>
+            <span class="status-live">ONLINE 24/7</span>
+          </div>
+
+          <h1 class="hero-title">
+            Share File <br>
+            <span class="gradient-text">OB55</span>
+          </h1>
+
+          <p class="hero-desc" id="heroDesc">
+            File Siêu Bá. Kho config, tài nguyên được tuyển chọn kỹ lưỡng, link tải tốc độ cao, giao diện tối giản chuẩn deep red.
+          </p>
+
+          <div class="hero-btns">
+            <button class="btn btn-primary btn-lg" onclick="switchTab('files')">
+              <span>Xem kho file</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <button class="btn btn-glass btn-lg" onclick="switchTab('admin')">
+              <span>Liên hệ Admin</span>
+            </button>
+          </div>
+
+          <div class="quick-tags">
+            <button class="quick-chip" onclick="filterByTier('free')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              FILE FREE
+            </button>
+            <button class="quick-chip" onclick="switchTab('admin')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              ADMIN
+            </button>
+          </div>
+
+          <!-- Statistics -->
+          <div class="stats-row">
+            <div class="user-avatars">
+              <span class="avatar-circle"></span>
+              <span class="avatar-circle"></span>
+              <span class="avatar-circle"></span>
+            </div>
+            <div class="stat-item">
+              <strong id="statVisits">36M+</strong>
+              <small>lượt truy cập hệ thống</small>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <strong id="statFilesCount">1</strong>
+              <small>file đang hoạt động</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right / Glass Window Mockup -->
+        <div class="hero-preview" aria-hidden="true">
+          <div class="glass-window">
+            <div class="window-header">
+              <div class="dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="window-url">nguyxnan-share.io/files</div>
+              <div class="live-tag">LIVE</div>
+            </div>
+            <div class="window-body">
+              <div class="mock-sidebar">
+                <div class="mock-line active"></div>
+                <div class="mock-line"></div>
+                <div class="mock-line"></div>
+              </div>
+              <div class="mock-content">
+                <div class="mock-title">⚡ File Mới Cập Nhật</div>
+                <div class="mock-cards">
+                  <div class="m-card hot">
+                    <span class="m-tag">ZIP</span>
+                    <b>VIP FILE</b>
+                    <div class="m-bar"></div>
+                  </div>
+                  <div class="m-card">
+                    <span class="m-tag">CFG</span>
+                    <b>FREE FILE</b>
+                    <div class="m-bar"></div>
+                  </div>
+                  <div class="m-card">
+                    <span class="m-tag">VIP</span>
+                    <b>NEW DROP</b>
+                    <div class="m-bar"></div>
+                  </div>
+                </div>
+                <div class="m-bottom-banner">
+                  <span>Chữ Tín Còn Quý Hơn Vàng!</span>
+                  <button>OPEN</button>
+                </div>
+              </div>
+            </div>
+            <!-- Floating Chips -->
+            <div class="floating-chip chip-shield">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div>
+                <strong>Bảo Mật Cao</strong>
+                <small>Link sạch 100%</small>
+              </div>
+            </div>
+            <div class="floating-chip chip-fast">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <div>
+                <strong>Tốc Độ Cao</strong>
+                <small>Tải 1 chạm</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TAB 2: KHO FILE (LIBRARY) ===== -->
+    <section class="tab-panel" id="tab-files">
+      <div class="files-header">
+        <div class="section-kicker">/ FILE LIBRARY</div>
+        <h2>Chọn file bạn muốn <br><span class="gradient-text">tải xuống.</span></h2>
+        <p class="subtitle">Mọi file được gom gọn trong một giao diện. Có mật khẩu sẽ hiện trước khi mở link.</p>
+        
+        <!-- Filter Tabs -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">Tất cả</button>
+          <button class="filter-btn" data-filter="new" onclick="setFilter('new')">Mới</button>
+          <button class="filter-btn" data-filter="idol" onclick="setFilter('idol')">IDOL</button>
+          <button class="filter-btn" data-filter="vip" onclick="setFilter('vip')">VIP</button>
+          <button class="filter-btn" data-filter="free" onclick="setFilter('free')">FREE</button>
+        </div>
+      </div>
+
+      <!-- File Grid List -->
+      <div class="file-grid" id="fileGrid">
+        <!-- Rendered by script.js -->
+      </div>
+
+      <!-- Hộp lưu ý hướng dẫn cài đặt file -->
+      <div class="files-instruction-box">
+        <div class="instruction-title">
+          <span>❗❗ LƯU Ý:</span>
+        </div>
+        <div class="instruction-list">
+          <div class="instruction-item">💗CÁCH CÀI FILE ADR BÊN MÌNH: GIẢI NÉN FILE RỒI DÁN DATA FREE FIRE AE CHƠI💗</div>
+          <div class="instruction-item">💗CÁCH CÀI IOS: CÀI CẤU HÌNH💗</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TAB 3: ADMIN ===== -->
+    <section class="tab-panel" id="tab-admin">
+      <div class="admin-wrapper">
+        <div class="admin-card glass-card">
+          <div class="admin-profile">
+            <div class="avatar-frame">
+              <img id="adminAvatar" src="https://i.ibb.co/9z0xwGY/31-EF5887-FC2-E-469-C-8-E9-E-C3-EB9-A8-BCF26.png" alt="Admin Avatar">
+              <span class="online-indicator">● ONLINE</span>
+            </div>
+            
+            <div class="admin-info">
+              <div class="section-kicker">/ ADMIN CENTER</div>
+              <h2 id="adminName">TuQuang • CriperLegend 🧩</h2>
+              <p id="adminDesc">Admin hỗ trợ link tải, mật khẩu và cập nhật file mới. Phản hồi qua Zalo, TikTok hoặc Facebook.</p>
+              
+              <div class="social-links" id="adminLinks">
+                <!-- Links rendered by script.js -->
+              </div>
+            </div>
+
+            <div class="admin-watermark">
+              <span>01</span>
+              <strong>VIP</strong>
+              <small>24/7</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="brand-text">Nguyxn An 💸</div>
+        <p>Premium File Center • Giao diện Dark Crimson huyền bí, mượt mà & tinh tế.</p>
+      </div>
+      <div class="footer-right">
+        <span>© 2026 Nguyxn An. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal mật khẩu & xác nhận tải -->
+  <div class="modal-backdrop" id="downloadModal" onclick="closeModal(event)">
+    <div class="modal-box glass-card" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <span class="modal-kicker">SECURE DOWNLOAD</span>
+      <h3 id="modalFileName">Tên file</h3>
+      <p id="modalHint">Sao chép mật khẩu bên dưới trước khi mở link tải file.</p>
+
+      <div class="password-box" id="passContainer">
+        <code id="modalPasswordText">password</code>
+        <button class="btn btn-sm btn-glass" onclick="copyPassword()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyBtnLabel">Sao chép</span>
+        </button>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary btn-block" id="modalDownloadBtn" onclick="proceedToDownload()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Mở link tải
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastNotice">Thông báo</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
