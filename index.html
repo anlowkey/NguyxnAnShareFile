@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <title>Deep Blue File Center — Kho File Tải Nhanh</title>
+  <title>Nguyxn An 💸 — Premium File Center</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -261,7 +261,7 @@
     </div>
   </footer>
 
-  <!-- Modal mật khẩu & xác nhận tải -->
+  <!-- Modal nhiệm vụ, mật khẩu & tải file -->
   <div class="modal-backdrop" id="downloadModal" onclick="closeModal(event)">
     <div class="modal-box glass-card" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -270,25 +270,64 @@
       </div>
       <span class="modal-kicker">SECURE DOWNLOAD</span>
       <h3 id="modalFileName">Tên file</h3>
-      <p id="modalHint">Sao chép mật khẩu bên dưới trước khi mở link tải file.</p>
+      
+      <!-- Khung nhiệm vụ TikTok -->
+      <div class="task-section" id="taskSection">
+        <p class="task-intro">Hoàn thành 3 nhiệm vụ bên dưới để mở khóa link tải và mật khẩu:</p>
+        <div class="task-list">
+          <div class="task-card" id="taskCard1" onclick="performTask(1)">
+            <div class="task-info">
+              <span class="task-step">Nhiệm vụ 1</span>
+              <span class="task-name">👍 Thích Video Mới</span>
+            </div>
+            <button class="task-btn" id="taskBtn1">Thực hiện</button>
+          </div>
 
-      <div class="password-box" id="passContainer">
-        <code id="modalPasswordText">password</code>
-        <button class="btn btn-sm btn-glass" onclick="copyPassword()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          <span id="copyBtnLabel">Sao chép</span>
-        </button>
+          <div class="task-card" id="taskCard2" onclick="performTask(2)">
+            <div class="task-info">
+              <span class="task-step">Nhiệm vụ 2</span>
+              <span class="task-name">❤️ Tim Video Mới</span>
+            </div>
+            <button class="task-btn" id="taskBtn2">Thực hiện</button>
+          </div>
+
+          <div class="task-card" id="taskCard3" onclick="performTask(3)">
+            <div class="task-info">
+              <span class="task-step">Nhiệm vụ 3</span>
+              <span class="task-name">✈️ Chia sẻ 5 người bạn</span>
+            </div>
+            <button class="task-btn" id="taskBtn3">Thực hiện</button>
+          </div>
+        </div>
       </div>
 
-      <div class="modal-actions">
-        <button class="btn btn-primary btn-block" id="modalDownloadBtn" onclick="proceedToDownload()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Mở link tải
-        </button>
-        <button class="btn btn-secondary btn-block" id="modalGuideBtn" onclick="openGuideLink()" style="display:none;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Xem video cách cài
-        </button>
+      <!-- Khu vực sau khi mở khóa nhiệm vụ -->
+      <div class="unlocked-content" id="unlockedContent" style="display: none;">
+        <div class="unlocked-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Đã hoàn thành nhiệm vụ!</span>
+        </div>
+
+        <p id="modalHint">Sao chép mật khẩu bên dưới trước khi mở link tải file.</p>
+
+        <div class="password-box" id="passContainer">
+          <code id="modalPasswordText">password</code>
+          <button class="btn btn-sm btn-glass" onclick="copyPassword()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copyBtnLabel">Sao chép</span>
+          </button>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn btn-primary btn-block" id="modalDownloadBtn" onclick="proceedToDownload()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Mở link tải
+          </button>
+          <button class="btn btn-secondary btn-block" id="modalGuideBtn" onclick="openGuideLink()" style="display:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Xem video cách cài
+          </button>
+        </div>
       </div>
     </div>
   </div>

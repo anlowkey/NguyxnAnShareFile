@@ -267,16 +267,10 @@ function renderFiles() {
               </span>
             </div>
             <div class="file-actions">
-              ${file.hasTask 
-                ? `<button class="btn btn-sm btn-task" onclick="handleTask('${file.id}')">
-                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                     <span>${file.taskLabel || 'Làm nhiệm vụ'}</span>
-                   </button>`
-                : `<button class="btn btn-sm btn-primary" onclick="openDownloadModal('${file.id}')">
-                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                     <span>${isVip ? 'Lấy file' : 'Tải ngay'}</span>
-                   </button>`
-              }
+              <button class="btn btn-sm btn-primary" onclick="openDownloadModal('${file.id}')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>${isVip ? 'Lấy file' : 'Tải ngay'}</span>
+              </button>
               <button class="icon-btn-round" title="Sao chép liên kết" onclick="copyFileLink('${file.id}')">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.1 1.1M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.1-1.1"/></svg>
               </button>
@@ -289,8 +283,69 @@ function renderFiles() {
 }
 
 // ==========================================
-// MODAL & DOWNLOAD ACTIONS
+// MODAL & TASK & DOWNLOAD ACTIONS
 // ==========================================
+const TIKTOK_PROFILE_URL = "https://www.tiktok.com/@nguyenancute6";
+
+// Quản lý trạng thái 3 nhiệm vụ theo file
+const fileTaskProgress = {};
+
+function getFileTasks(fileId) {
+  if (!fileTaskProgress[fileId]) {
+    fileTaskProgress[fileId] = { 1: false, 2: false, 3: false };
+  }
+  return fileTaskProgress[fileId];
+}
+
+function updateTaskUI(fileId) {
+  const tasks = getFileTasks(fileId);
+  const isAllDone = tasks[1] && tasks[2] && tasks[3];
+
+  for (let i = 1; i <= 3; i++) {
+    const card = document.getElementById(`taskCard${i}`);
+    const btn = document.getElementById(`taskBtn${i}`);
+    if (card && btn) {
+      if (tasks[i]) {
+        card.classList.add("completed");
+        btn.textContent = "✓ Đã xong";
+      } else {
+        card.classList.remove("completed");
+        btn.textContent = "Thực hiện";
+      }
+    }
+  }
+
+  const taskSection = document.getElementById("taskSection");
+  const unlockedContent = document.getElementById("unlockedContent");
+
+  if (isAllDone) {
+    if (taskSection) taskSection.style.display = "none";
+    if (unlockedContent) unlockedContent.style.display = "block";
+  } else {
+    if (taskSection) taskSection.style.display = "block";
+    if (unlockedContent) unlockedContent.style.display = "none";
+  }
+}
+
+function performTask(taskNumber) {
+  if (!selectedFile) return;
+  const tasks = getFileTasks(selectedFile.id);
+
+  // Mở link TikTok của bạn
+  window.open(TIKTOK_PROFILE_URL, "_blank");
+
+  // Đánh dấu hoàn thành ngay lập tức
+  tasks[taskNumber] = true;
+  updateTaskUI(selectedFile.id);
+
+  const doneCount = Object.values(tasks).filter(Boolean).length;
+  if (doneCount === 3) {
+    showToast("🎉 Đã hoàn thành 3 nhiệm vụ! Mở khóa file thành công.");
+  } else {
+    showToast(`✅ Đã xong nhiệm vụ ${taskNumber}! Còn ${3 - doneCount} nhiệm vụ nữa.`);
+  }
+}
+
 function openDownloadModal(fileId) {
   selectedFile = CONFIG.files.find(f => f.id === fileId);
   if (!selectedFile) return;
@@ -321,6 +376,9 @@ function openDownloadModal(fileId) {
     }
   }
 
+  // Cập nhật giao diện nhiệm vụ
+  updateTaskUI(selectedFile.id);
+
   modal.classList.add("active");
 }
 
@@ -350,17 +408,6 @@ function proceedToDownload() {
   if (!selectedFile) return;
   window.open(selectedFile.downloadUrl, "_blank");
   closeModal();
-}
-
-function handleTask(fileId) {
-  const file = CONFIG.files.find(f => f.id === fileId);
-  if (!file) return;
-  showToast("Đang chuyển hướng để làm nhiệm vụ...");
-  setTimeout(() => {
-    window.open(file.taskUrl, "_blank");
-    // Mở luôn modal để sẵn sàng mật khẩu
-    openDownloadModal(fileId);
-  }, 600);
 }
 
 function copyFileLink(fileId) {
