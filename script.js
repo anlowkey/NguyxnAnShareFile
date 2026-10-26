@@ -21,6 +21,10 @@ const CONFIG = {
       desc: "Ứng dụng Flork bản v1.0 mới nhất, hỗ trợ tải nhanh và mượt mà.",
       type: "ZIP",
       tier: "free",
+      badges: [
+        { text: "FREE", class: "badge-free" },
+        { text: "MỚI", class: "badge-new" }
+      ],
       isNew: true,
       hasTask: false,
       password: "",
@@ -32,7 +36,11 @@ const CONFIG = {
       desc: "Bản AimLock cực nhạy từ Idol Rinkivana, kéo tâm mượt mà, hỗ trợ giải nén dán data.",
       type: "ZIP",
       tier: "idol",
-      badgeText: "IDOL",
+      badges: [
+        { text: "IDOL", class: "badge-idol" },
+        { text: "MỚI", class: "badge-new" },
+        { text: "ADR", class: "badge-adr" }
+      ],
       isNew: true,
       hasTask: false,
       password: "AimlockRin",
@@ -44,7 +52,11 @@ const CONFIG = {
       desc: "Bản AimLock Tank Supper 500K cho Android, chuẩn form bám tâm ghim đầu cực căng.",
       type: "ZIP",
       tier: "idol",
-      badgeText: "IDOL",
+      badges: [
+        { text: "IDOL", class: "badge-idol" },
+        { text: "MỚI", class: "badge-new" },
+        { text: "ADR", class: "badge-adr" }
+      ],
       isNew: true,
       hasTask: false,
       password: "Tank500k",
@@ -56,11 +68,84 @@ const CONFIG = {
       desc: "Phiên bản AIMLOCK V4 Tiến Bờ Rai siêu hot, độ nhạy cao và ổn định.",
       type: "ZIP",
       tier: "idol",
-      badgeText: "IDOL",
+      badges: [
+        { text: "IDOL", class: "badge-idol" },
+        { text: "MỚI", class: "badge-new" }
+      ],
       isNew: true,
       hasTask: false,
       password: "TBR500K",
       downloadUrl: "https://www.mediafire.com/file/79qnn02ecqacojq/%F0%9D%99%B0%F0%9D%99%B8%F0%9D%99%BC%F0%9D%99%BB%F0%9D%99%BE%F0%9D%99%B2%F0%9D%99%BA+V4+TBR.zip/file"
+    },
+    {
+      id: "f5",
+      name: "AimLock Idol Mập Hài Hước 500K ADR",
+      desc: "Bản AimLock Idol Mập Hài Hước 500K cực hot, kèm video hướng dẫn cách cài chi tiết.",
+      type: "7Z",
+      tier: "vip",
+      badges: [
+        { text: "IDOL", class: "badge-idol" },
+        { text: "MỚI", class: "badge-new" },
+        { text: "VIP", class: "badge-vip" },
+        { text: "ADR", class: "badge-adr" }
+      ],
+      isNew: true,
+      hasTask: false,
+      password: "aimlockvip500kmaphaihuocob55",
+      downloadUrl: "https://www.mediafire.com/file/jpru2z9cn72gh0u/Aimlock_500k_MHH.7z/file",
+      guideUrl: "https://www.mediafire.com/file/gep682j6djr3mwz/1WUpukp0gU8yJCmEAm8yTINAofn8P3e92mu1g30o6KcKOWMa5Vy6gvbirGpiKv0345a.mp4/file"
+    },
+    {
+      id: "f6",
+      name: "AimLock HyperLock Idol View Anh 200k Ios",
+      desc: "Bản HyperLock cài trực tiếp cấu hình Mobileconfig cực mượt dành riêng cho iOS.",
+      type: "CFG",
+      tier: "vip",
+      badges: [
+        { text: "IDOL", class: "badge-idol" },
+        { text: "MỚI", class: "badge-new" },
+        { text: "VIP", class: "badge-vip" },
+        { text: "iOS", class: "badge-ios" }
+      ],
+      isNew: true,
+      hasTask: false,
+      password: "",
+      downloadUrl: "https://www.mediafire.com/file/brsknceb0ocrai7/%25F0%259D%2597%259B%25F0%259D%2598%2586%25F0%259D%2597%25BD%25F0%259D%2597%25B2%25F0%259D%2597%25BF%25F0%259D%2597%259F%25F0%259D%2597%25BC%25F0%259D%2597%25B0%25F0%259D%2597%25B8_%25F0%259D%259F%25AE%25F0%259D%259F%25AC%25F0%259D%259F%25AC%25F0%259D%2597%25B8%25F0%259F%258D%258F.mobileconfig/file"
+    },
+    {
+      id: "f7",
+      name: "DPI Idol Nextor 1M Ios",
+      desc: "Video hướng dẫn thiết lập DPI Nextor 1M siêu đỉnh, nhạy màn bám tâm iOS.",
+      type: "MP4",
+      tier: "vip",
+      badges: [
+        { text: "IDOL", class: "badge-idol" },
+        { text: "MỚI", class: "badge-new" },
+        { text: "VIP", class: "badge-vip" },
+        { text: "DPI XỊN", class: "badge-dpixin" },
+        { text: "iOS", class: "badge-ios" }
+      ],
+      isNew: true,
+      hasTask: false,
+      password: "",
+      downloadUrl: "https://www.mediafire.com/file/luqa22dkqg36nj1/VIDEO_DOWNLOAD_1792243253948_1792244978079.mp4/file"
+    },
+    {
+      id: "f8",
+      name: "AimLock Idol Tiến Bờ Roai 400K Ios",
+      desc: "Bản AimLock Tiến Bờ Roai 400K cho iOS, nhẹ tâm, ghim đầu cực nhạy.",
+      type: "ZIP",
+      tier: "vip",
+      badges: [
+        { text: "IDOL", class: "badge-idol" },
+        { text: "MỚI", class: "badge-new" },
+        { text: "VIP", class: "badge-vip" },
+        { text: "iOS", class: "badge-ios" }
+      ],
+      isNew: true,
+      hasTask: false,
+      password: "1",
+      downloadUrl: "https://www.mediafire.com/file/bdzepd49m12sarm/asdnsakdwicnasl.zip/file"
     }
   ]
 };
@@ -141,9 +226,11 @@ function renderFiles() {
   const filtered = CONFIG.files.filter(f => {
     if (currentFilter === 'all') return true;
     if (currentFilter === 'new') return f.isNew;
-    if (currentFilter === 'idol') return f.tier === 'idol';
-    if (currentFilter === 'vip') return f.tier === 'vip';
-    if (currentFilter === 'free') return f.tier === 'free';
+    if (currentFilter === 'idol') return (f.badges && f.badges.some(b => b.text === 'IDOL')) || f.tier === 'idol';
+    if (currentFilter === 'vip') return (f.badges && f.badges.some(b => b.text === 'VIP')) || f.tier === 'vip';
+    if (currentFilter === 'free') return (f.badges && f.badges.some(b => b.text === 'FREE')) || f.tier === 'free';
+    if (currentFilter === 'ios') return f.badges && f.badges.some(b => b.text === 'iOS');
+    if (currentFilter === 'adr') return f.badges && f.badges.some(b => b.text === 'ADR');
     return true;
   });
 
@@ -153,15 +240,10 @@ function renderFiles() {
   }
 
   container.innerHTML = filtered.map(file => {
-    const isVip = file.tier === 'vip';
-    let badgeClass = 'badge-free';
-    let badgeLabel = file.tier.toUpperCase();
-    if (file.tier === 'vip') {
-      badgeClass = 'badge-vip';
-    } else if (file.tier === 'idol') {
-      badgeClass = 'badge-idol';
-      badgeLabel = file.badgeText || 'IDOL';
-    }
+    const isVip = file.tier === 'vip' || (file.badges && file.badges.some(b => b.text === 'VIP'));
+    const badgesHtml = file.badges 
+      ? file.badges.map(b => `<span class="badge-tag ${b.class}">${b.text}</span>`).join(" ")
+      : `<span class="badge-tag ${file.tier === 'vip' ? 'badge-vip' : file.tier === 'idol' ? 'badge-idol' : 'badge-free'}">${(file.tier || '').toUpperCase()}</span>${file.isNew ? ' <span class="badge-tag badge-new">MỚI</span>' : ''}`;
     const hasPassword = Boolean(file.password);
 
     return `
@@ -170,8 +252,7 @@ function renderFiles() {
         <div class="file-body">
           <div class="file-top">
             <span class="file-name">${file.name}</span>
-            <span class="badge-tag ${badgeClass}">${badgeLabel}</span>
-            ${file.isNew ? '<span class="badge-tag badge-new">MỚI</span>' : ''}
+            ${badgesHtml}
           </div>
           <div class="file-desc">${file.desc}</div>
           <div class="file-footer">
@@ -219,6 +300,7 @@ function openDownloadModal(fileId) {
   const passContainer = document.getElementById("passContainer");
   const modalPasswordText = document.getElementById("modalPasswordText");
   const modalHint = document.getElementById("modalHint");
+  const modalGuideBtn = document.getElementById("modalGuideBtn");
 
   modalFileName.textContent = selectedFile.name;
 
@@ -231,7 +313,21 @@ function openDownloadModal(fileId) {
     modalHint.textContent = "File này không yêu cầu mật khẩu. Bạn có thể mở link tải ngay.";
   }
 
+  if (modalGuideBtn) {
+    if (selectedFile.guideUrl) {
+      modalGuideBtn.style.display = "flex";
+    } else {
+      modalGuideBtn.style.display = "none";
+    }
+  }
+
   modal.classList.add("active");
+}
+
+function openGuideLink() {
+  if (selectedFile && selectedFile.guideUrl) {
+    window.open(selectedFile.guideUrl, "_blank");
+  }
 }
 
 function closeModal() {

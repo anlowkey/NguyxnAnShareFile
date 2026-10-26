@@ -193,6 +193,8 @@
           <button class="filter-btn" data-filter="new" onclick="setFilter('new')">Mới</button>
           <button class="filter-btn" data-filter="idol" onclick="setFilter('idol')">IDOL</button>
           <button class="filter-btn" data-filter="vip" onclick="setFilter('vip')">VIP</button>
+          <button class="filter-btn" data-filter="ios" onclick="setFilter('ios')">iOS</button>
+          <button class="filter-btn" data-filter="adr" onclick="setFilter('adr')">ADR</button>
           <button class="filter-btn" data-filter="free" onclick="setFilter('free')">FREE</button>
         </div>
       </div>
@@ -282,6 +284,10 @@
         <button class="btn btn-primary btn-block" id="modalDownloadBtn" onclick="proceedToDownload()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Mở link tải
+        </button>
+        <button class="btn btn-secondary btn-block" id="modalGuideBtn" onclick="openGuideLink()" style="display:none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Xem video cách cài
         </button>
       </div>
     </div>
